@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        the new data is :
+        name : <%= name %>
+        number : <%= number %>
+        username : <%= username %>
+        password : <%= password %>
+        type : <%= type %>
+    </p>
+    <a href="#">return to the main page</a>
+    
+</body>
+<script>
+let url = window.location.pathname
+let x= url.split("/")[1]
+document.querySelector("a").setAttribute("href", "/"+x)
+console.log(x)
+</script>
+</html>

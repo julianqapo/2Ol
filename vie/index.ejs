@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>users database</title>
+</head>
+
+<body>
+    <h1>Payment of <%=url%></h1>
+   <a href="/<%= url %>/adduser">Add User</a>
+    <input type="text">
+    <% console.log(url) %>
+   <table>
+       <tr>
+            <th>name</th>
+            <th>number</th>
+            <th>username</th>
+            <th>type</th>
+            <th>jan</th>
+            <th>feb</th>
+            <th>march</th>
+            <th>april</th>
+            <th>may</th>
+            <th>june</th>
+            <th>july</th>
+            <th>augest</th>
+            <th>sep</th>
+            <th>oct</th>
+            <th>nov</th>
+            <th>dec</th>
+       </tr>
+       
+       
+       <% for (let i=0; i<users.length; i++) { %>
+            
+        <tr id="<%= users[i]["name"]%>">
+            <td><%= users[i]["name"]%></td>
+            <td><%= users[i]["number"]%></td>
+
+            <td><a href="<%=url%>/<%= users[i]["username"]%>"><%= users[i]["username"]%></a></td>
+
+            
+            <td><%= users[i]["type"]%></td>
+            <th class="0"><%= users[i]["0"]%></th>
+             <th class="1"><%= users[i]["1"]%></th>
+             <th class="2"><%= users[i]["2"]%></th>
+             <th class="3"><%= users[i]["3"]%></th>
+             <th class="4"><%= users[i]["4"]%></th>
+             <th  class="5"><%= users[i]["5"]%></th>
+             <th  class="6"><%= users[i]["6"]%></th>
+             <th  class="7"><%= users[i]["7"]%></th>
+             <th  class="8"><%= users[i]["8"]%></th>
+             <th  class="9"><%= users[i]["9"]%></th>
+             <th  class="10"><%= users[i]["10"]%></th>
+             <th  class="11"><%= users[i]["11"]%></th>
+
+        </tr>
+        <% }%>
+
+       
+       
+    
+        
+
+
+   </table>
+   <div></div>
+   
+
+</body>
+<script>
+
+    function formm(){
+        let div = document.querySelector("div")
+    let form = `<form style="display : none;" action="/<%= url%>" method="POST">
+     
+       <input type="text" name="amount" value="${x}" >
+       <input type="text" name="name" value="${user}" >
+       <input type="text" name="month" value="${month}" >
+       <button>submit</button>
+   </form>`
+   div.insertAdjacentHTML("beforeend", form)
+   let btn = document.querySelector("button")
+   btn.dispatchEvent(new MouseEvent("click"))
+    }
+    //const users = require("../users")
+    let x;
+    let user
+    let month 
+    let table = document.querySelector("table")
+    table.addEventListener("click", e=> {
+    
+    if (e.target.className && e.target.parentNode.hasAttribute("id")){
+         user = e.target.parentNode.getAttribute("id")
+        
+        
+             month = e.target.getAttribute("class")
+            month = parseInt(month)
+         x = prompt(`${user}, for the month ${month + 1}:`)
+    if (x == null){
+        x = prompt(`${user}, for the month ${month+ 1}:`)
+    }else{
+        e.target.innerHTML = x
+    }
+    
+    // to for and post method for data editing
+    
+    formm()
+    //to here
+    }
+    
+
+    
+    
+})
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit User</title>
+</head>
+<body>
+       
+    <h1>username : <%=username%></h1>
+    <form action="/<%= year%>/<%=user%>/" method="POST">
+    <input type="text" name="name" placeholder="<%= user%>">
+    <input type="text" name="number"  placeholder="<%= number%>">
+    <input type="text" name="password" placeholder="<%= password%>">
+    <select name="type">
+            <option value="35" >35</option>
+            <option value="55">55</option>
+            <option value="55">75</option>
+        </select>
+    <button>Edit User</button>
+    </form>
+    
+</body>
+</html>
